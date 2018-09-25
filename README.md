@@ -4,24 +4,42 @@ gome is a project intended to simplify IoT discovery and management, with the in
 
 As IoT devices could have a very wide range of features (e.g. a speaker light combo) the mix-in style interfaces of go might be well suited to composing a device as a collections of features instead of a more object inheritance style that Java would do.
 
-## Ideas
-- create commonly used commands (i.e. turn on/off, light settings, device status)
-    - will need adapters for common systems, plus a nice interface for implementing new ones
-- allow for custom commands to be sent through to specific devices
-- DB for data storage
-    - local DB
-    - cloud DB
-- REST api
-- auto detection of IoT devices
-- manual adding of IoT devices
-- room/home layout mapper
-    - doors/windows
-    - 3 dimensional room info
+## Concepts
+### Spaces
+- building
+- floor
+- room
+    - 3 dimensional specs
     - curved walls
-    - maybe just allow a formula to define a room???
-    - single room first
-    - single floor
-    - multi-floor
-    - non connected rooms
-    - non connected buildings
-- allow positioning of IoT devices within rooms
+    - windows
+    - doors
+- outside
+
+### IoT Devices
+- any network device capable of sending/receiving communication
+- can be positioned within spaces
+
+## Server
+In general there will need to be adapters that convert server input into inputs that specific devices will understand.
+
+### IoT Device Discovery
+Should be able to automatically detect devices on the network. Should also be able to manually add devices.
+
+### REST Api
+#### Spaces
+- CRUD endpoints
+
+#### IoT Devices
+- CRUD endpoints
+- interact with device
+    - commonly used actions
+    - allow pass through of commands
+
+### DB Storage
+- local db
+- remote db
+
+## Clients
+### Terminal
+
+### Web
